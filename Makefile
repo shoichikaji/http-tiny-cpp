@@ -1,11 +1,11 @@
-main: http-tiny.o main.o
+main: lib/http-tiny.o eg/main.o
 	g++ -o $@ $^ -lcurl
 
-main.o: eg/main.cpp
-	g++ -Ilib -c $<
+eg/main.o: eg/main.cpp
+	g++ -Ilib -c $< -o $@
 
-http-tiny.o: lib/http-tiny.cpp
-	g++ -c $<
+lib/http-tiny.o: lib/http-tiny.cpp
+	g++ -c $< -o $@
 
 clean:
-	rm -f *.o main
+	rm -f lib/*.o main

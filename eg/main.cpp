@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 
   const char* url = argv[1];
 
-  HTTPTinyResponse res = HTTPTiny().request("GET", url);
+  HTTPTinyResponse res = HTTPTiny().get(url);
 
   if (!res.success) {
     cerr << "Failed!" << endl;
